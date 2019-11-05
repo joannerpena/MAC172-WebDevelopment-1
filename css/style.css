@@ -19,3 +19,16 @@
   margin-left: 2em;
   padding: 0.5em;
 }
+
+/* ====== FOOTER ====== */
+.footer {
+  background-color: #236a99;
+  color: #fff;
+  padding: 1em;
+}
+
+/* ====== UTILITIES ====== */
+.no-padding {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
