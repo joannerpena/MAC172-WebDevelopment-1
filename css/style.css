@@ -1,0 +1,21 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  padding: 0.5em;
+}
+
+.header {
+  background-color: #2980b9;
+  color: #fff;
+}
+
+.navigation {
+  list-style: none;
+}
+
+.nav-item {
+  margin-left: 2em;
+  padding: 0.5em;
+}
