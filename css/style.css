@@ -39,6 +39,16 @@
   color: #123750;
 }
 
+/* ====== Login ====== */
+.login-jumbo {
+  margin: 0em auto;
+  width: 35em;
+}
+
+.login-box {
+  margin: 15em auto;
+}
+
 /* ====== Slide-Image ====== */
 .slide-title {
   position: absolute;
@@ -50,9 +60,6 @@
 }
 
 /* ====== Slide-Image ====== */
-.login-box {
-  margin: 10em;
-}
 
 /* ====== FOOTER ====== */
 .footer {
