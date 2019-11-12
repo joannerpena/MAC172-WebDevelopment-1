@@ -77,10 +77,28 @@
   background-position-y: -1em;
   filter: grayscale(25%);
 }
+/* ====== Card-Info ====== */
+.card-box {
+  background-color: #eee;
+  margin: 2em auto;
+  width: 80em;
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #2980b9;
+}
+
+.card-img {
+  width: 395px;
+  height: 325px;
+}
 
 /* ====== Ad-Banner ====== */
 .ad-slide {
   background-color: #eee;
+  padding: 1em;
 }
 
 .ad-banner {
@@ -127,4 +145,8 @@
 
 .no-padding-jumbo {
   padding: 0 !important;
+}
+
+.b-gray {
+  background-color: #eee;
 }
