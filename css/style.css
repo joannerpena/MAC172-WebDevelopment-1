@@ -40,14 +40,40 @@
 }
 
 /* ====== Login ====== */
-.login-jumbo {
-  margin: 0em auto;
-  width: 35em;
+.login-box {
+  padding: 5em !important;
+  margin: 10em auto;
 }
 
-.login-box {
-  margin: 15em auto;
+.login-logo {
+  width: 40%;
+  margin-bottom: 1em;
 }
+
+.login-title {
+  margin-bottom: 1em;
+}
+
+.logIn-Banner {
+  position: relative;
+  background-image: url(../img/logIn-image.jpg);
+  width: 100%;
+  height: 59.6em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+
+.login-image-title,
+.login-image-subtitle {
+  position: absolute;
+}
+
+.signUp-link {
+  margin-top: 0.5em;
+}
+
+/* ====== SignUp ====== */
 
 /* ====== Slide-Image ====== */
 .slide-title {
