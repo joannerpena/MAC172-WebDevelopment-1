@@ -5,8 +5,8 @@ function StartedSetup() {
     return;
   } else {
     var DumpUsers = [
-      [1, 'Jose', 'Pena', 'admin@admin.com', 'admin', '10000'],
-      [2, 'Admin', 'Pena', 'pena@admin.com', 'admin', '90000']
+      [1, 'Jose', 'Pena', 'admin@admin.com', 'admin', 10000],
+      [2, 'Admin', 'Pena', 'pena@admin.com', 'admin', 90000]
     ];
     localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
   }

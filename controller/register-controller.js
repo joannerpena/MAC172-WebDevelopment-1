@@ -16,7 +16,7 @@ function registerUser() {
       inputLName.value,
       inputEmail.value,
       inputPass.value,
-      inputAmount.value
+      parseInt(inputAmount.value)
     ];
 
     DumpUsers.push(newUser);

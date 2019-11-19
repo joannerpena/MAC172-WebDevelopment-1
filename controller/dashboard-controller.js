@@ -22,6 +22,10 @@ function fillDashboard() {
   }
 }
 
-fillDashboard();
+function main() {
+  fillDashboard();
+}
+
+main();
 
 logOutButton.addEventListener('click', logOut);
