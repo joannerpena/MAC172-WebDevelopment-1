@@ -15,62 +15,81 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <title>Banking Registration Form</title>
+    <title>Banking SignUp</title>
   </head>
   <body>
-    <div class="login-box">
-      <div class="col-sm-12 d-flex justify-content-center">
-        <a href="../index.html">
-          <img
-            src="../img/on-banking-black.png"
-            alt="On-Banking"
-            class="logo"
-          />
-        </a>
-      </div>
-      <div class="jumbotron login-jumbo">
-        <h2 class="d-flex justify-content-center">Registration</h2>
-        <form action="">
-          <div class="form-group">
-            <label for="InputFName">First Name</label>
-            <input type="text" class="form-control" id="InputFName" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 signUp-image"></div>
+        <div class="col-sm-6 signUp-form">
+          <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center">
+              <img
+                src="../img/on-banking-black.png"
+                alt="On-Banking Logo"
+                class="signUp-logo"
+              />
+            </div>
+            <div class="col-sm-12 d-flex justify-content-center">
+              <h2 class="signUp-title">Create your account</h2>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="InputLName">Last Name</label>
-            <input type="text" class="form-control" id="InputLName" />
-          </div>
-          <div class="form-group">
-            <label for="rEmail">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="rEmail"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-            <small id="emailHelp" class="form-text text-muted"
-              >We'll never share your email with anyone else.</small
-            >
-          </div>
-          <div class="form-group">
-            <label for="rPasswd">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              id="rPasswd"
-              placeholder="Password"
-            />
-          </div>
-          <button
-            type="button"
-            class="btn btn-primary btn-lg btn-block"
-            id="register-button"
-          >
-            Submit
-          </button>
-        </form>
+          <form>
+            <div class="form-group">
+              <label for="InputName">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="InputName"
+                placeholder="Enter First Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="InputLName">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="InputLName"
+                placeholder="Enter Last Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="InputAmount">Initial Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="InputAmount"
+                placeholder="$100"
+              />
+            </div>
+            <button type="submit" class="signUp-button btn btn-lg btn-block">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-    <script src="../js/user-registration.js"></script>
   </body>
 </html>
