@@ -191,6 +191,16 @@
   line-height: 1.5rem;
 }
 
+/* ====== DASHBOARD ====== */
+.dashboard-logo {
+  width: 15em;
+  padding: 0.75em;
+}
+
+.profileName {
+  color: #fff !important;
+}
+
 /* ====== FOOTER ====== */
 .footer {
   background-color: #236a99;
