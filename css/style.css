@@ -24,19 +24,18 @@
 .nav-item {
   margin-left: 1em;
   padding: 0.5em;
+  color: #fff !important;
 }
 
 .log-link {
   text-decoration: none;
-  color: #fff;
-  background: #123750;
-  padding: 1em 1.5em 1em 1.5em;
+  color: #fff !important;
+  padding: 1em;
 }
 
 .log-link:hover {
   text-decoration: none;
-  background-color: #fff;
-  color: #123750;
+  color: #123750 !important;
 }
 
 /* ====== Login ====== */
