@@ -16,7 +16,7 @@ function fillDashboard() {
 
   for (var i = 0; i < DumpUsers.length; i++) {
     if (DumpUsers[i][0] == logIndex) {
-      profileName.innerText = DumpUsers[i][1];
+      profileName.innerText = DumpUsers[i][1] + ' ' + DumpUsers[i][2];
       bankAmount.innerText = '$' + DumpUsers[i][5];
     }
   }

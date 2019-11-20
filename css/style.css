@@ -38,6 +38,18 @@
   color: #123750 !important;
 }
 
+.profile-image {
+  background-color: white;
+  background-image: url(../img/profile-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 3em;
+  height: 3em;
+  border-radius: 5em;
+  margin: 0.5em;
+}
+
 /* ====== Login ====== */
 .login-box {
   padding: 5em !important;
