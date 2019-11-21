@@ -198,10 +198,6 @@
   color: #fff !important;
 }
 
-.balance-section {
-  padding-bottom: 38.3em;
-}
-
 .balance-jumbo {
   margin: 1em auto;
 }
@@ -223,6 +219,18 @@
 
 .dropdown-toggle::after {
   content: none !important;
+}
+
+#new-transaction {
+  padding-bottom: 1em;
+}
+
+#transaction-form {
+  padding: 2em;
+}
+
+#transaction-list {
+  margin-top: 1em;
 }
 
 /* ====== SETTINGS ====== */
@@ -269,4 +277,12 @@
 
 .b-gray {
   background-color: #eee;
+}
+
+.separator {
+  padding: 23.5em;
+}
+
+.hidden {
+  display: none !important;
 }

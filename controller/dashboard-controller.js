@@ -2,8 +2,15 @@ var bankAmount = document.querySelector('#amount');
 var profileName = document.querySelector('#userName');
 var profileImage = document.querySelector('.profile-image');
 var logOutLink = document.querySelector('#log-out');
+var transactionButton = document.querySelector('#transaction-button');
+// var transactionForm = document.querySelector('#transaction-form');
+
+var today = new Date();
+var date =
+  today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
 
 var DumpUsers = JSON.parse(localStorage.getItem('DumpUsers'));
+var transactionList = [[1, 200, 'Coffee', 'Spent', date]];
 
 function logOut() {
   localStorage.removeItem('index');
@@ -28,6 +35,7 @@ function main() {
   fillDashboard();
 
   logOutLink.addEventListener('click', logOut);
+
   profileName.addEventListener('click', function() {
     window.location.replace('../pages/dashboard.html');
   });

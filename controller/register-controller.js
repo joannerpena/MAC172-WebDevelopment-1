@@ -16,11 +16,16 @@ function registerUser() {
       inputLName.value,
       inputEmail.value,
       inputPass.value,
-      parseInt(inputAmount.value)
+      parseInt(inputAmount.value),
+      '../img/default-profile.jpg'
     ];
 
     DumpUsers.push(newUser);
     localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
+
+    localStorage.setItem('isLog', true);
+    localStorage.setItem('index', index);
+    window.location.replace('../pages/dashboard.html');
   }
 }
 
