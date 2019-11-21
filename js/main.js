@@ -5,8 +5,24 @@ function StartedSetup() {
     return;
   } else {
     var DumpUsers = [
-      [1, 'Jose', 'Pena', 'admin@admin.com', 'admin', 10000],
-      [2, 'Admin', 'Pena', 'pena@admin.com', 'admin', 90000]
+      [
+        1,
+        'Jose',
+        'Pena',
+        'admin@admin.com',
+        'admin',
+        10000,
+        'https://imgur.com/hdB08vt.jpg'
+      ],
+      [
+        2,
+        'Admin',
+        'Pena',
+        'pena@admin.com',
+        'admin',
+        90000,
+        '../img/default-profile.jpg'
+      ]
     ];
     localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
   }

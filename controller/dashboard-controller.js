@@ -1,6 +1,7 @@
-var logOutButton = document.querySelector('#userName');
 var bankAmount = document.querySelector('#amount');
 var profileName = document.querySelector('#userName');
+var profileImage = document.querySelector('.profile-image');
+var logOutLink = document.querySelector('#log-out');
 
 var DumpUsers = JSON.parse(localStorage.getItem('DumpUsers'));
 
@@ -17,6 +18,7 @@ function fillDashboard() {
   for (var i = 0; i < DumpUsers.length; i++) {
     if (DumpUsers[i][0] == logIndex) {
       profileName.innerText = DumpUsers[i][1] + ' ' + DumpUsers[i][2];
+      profileImage.style.backgroundImage = 'url(' + DumpUsers[i][6] + ')';
       bankAmount.innerText = '$' + DumpUsers[i][5];
     }
   }
@@ -28,4 +30,7 @@ function main() {
 
 main();
 
-logOutButton.addEventListener('click', logOut);
+logOutLink.addEventListener('click', logOut);
+profileName.addEventListener('click', function() {
+  window.location.replace('../pages/dashboard.html');
+});

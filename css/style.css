@@ -38,18 +38,6 @@
   color: #123750 !important;
 }
 
-.profile-image {
-  background-color: white;
-  background-image: url(../img/profile-image.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 3em;
-  height: 3em;
-  border-radius: 5em;
-  margin: 0.5em;
-}
-
 /* ====== Login ====== */
 .login-box {
   padding: 5em !important;
@@ -208,6 +196,29 @@
 
 .profileName {
   color: #fff !important;
+}
+
+.balance-jumbo {
+  margin: 1em auto;
+}
+
+.balance-row {
+  width: 100%;
+}
+
+.profile-image {
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 3em;
+  height: 3em;
+  border-radius: 5em;
+  margin: 0.5em;
+}
+
+.dropdown-toggle::after {
+  content: none !important;
 }
 
 /* ====== FOOTER ====== */
