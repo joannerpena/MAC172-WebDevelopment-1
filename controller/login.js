@@ -31,4 +31,8 @@ function logIn() {
   }
 }
 
-submitButton.addEventListener('click', logIn);
+function main() {
+  submitButton.addEventListener('click', logIn);
+}
+
+main();

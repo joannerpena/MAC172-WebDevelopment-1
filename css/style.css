@@ -198,6 +198,10 @@
   color: #fff !important;
 }
 
+.balance-section {
+  padding-bottom: 38.3em;
+}
+
 .balance-jumbo {
   margin: 1em auto;
 }
@@ -219,6 +223,26 @@
 
 .dropdown-toggle::after {
   content: none !important;
+}
+
+/* ====== SETTINGS ====== */
+.setting-section {
+  padding: 2em 1em;
+  padding-bottom: 23.6em;
+}
+
+.settings-title {
+  margin-bottom: 1em;
+  font-size: 3em;
+  letter-spacing: 2px;
+}
+
+.settings-menu {
+  margin-top: 7em;
+}
+
+#profile-image-setting {
+  max-width: 20%;
 }
 
 /* ====== FOOTER ====== */

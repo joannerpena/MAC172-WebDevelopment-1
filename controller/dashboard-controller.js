@@ -26,11 +26,11 @@ function fillDashboard() {
 
 function main() {
   fillDashboard();
+
+  logOutLink.addEventListener('click', logOut);
+  profileName.addEventListener('click', function() {
+    window.location.replace('../pages/dashboard.html');
+  });
 }
 
 main();
-
-logOutLink.addEventListener('click', logOut);
-profileName.addEventListener('click', function() {
-  window.location.replace('../pages/dashboard.html');
-});

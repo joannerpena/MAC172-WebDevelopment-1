@@ -24,4 +24,8 @@ function registerUser() {
   }
 }
 
-submitButton.addEventListener('click', registerUser);
+function main() {
+  submitButton.addEventListener('click', registerUser);
+}
+
+main();
