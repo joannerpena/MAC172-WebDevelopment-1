@@ -1,5 +1,9 @@
 var logLink = document.querySelector('#login-link');
 
+var today = new Date();
+var date =
+  today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
+
 function StartedSetup() {
   if ('DumpUsers' in localStorage) {
     return;
@@ -24,6 +28,17 @@ function StartedSetup() {
         '../img/default-profile.jpg'
       ]
     ];
+
+    if ('transactionList' in localStorage) {
+      return;
+    } else {
+      var transactionList = [
+        [1, 1, 200, 'Coffee', 'Spent', date],
+        [2, 1, 400, 'Phone Bill', 'Spent', date]
+      ];
+      localStorage.setItem('transactionList', JSON.stringify(transactionList));
+    }
+
     localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
   }
 }

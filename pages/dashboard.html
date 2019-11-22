@@ -116,72 +116,55 @@
         <div id="transaction-form" class="col-sm-12 border-bottom">
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="InputAmount">Amount</label>
               <input
-                type="email"
+                type="number"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
+                id="InputAmount"
+                placeholder="$100"
               />
-              <small id="emailHelp" class="form-text text-muted"
-                >We'll never share your email with anyone else.</small
-              >
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label for="InputDesc">Description</label>
               <input
-                type="password"
+                type="text"
                 class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
+                id="InputDesc"
+                placeholder="Bills"
+                maxlength="20"
               />
             </div>
-            <div class="form-group form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1"
-                >Check me out</label
+            <div class="form-group">
+              <label for="selectClass">Type</label>
+              <select class="form-control" id="selectClass">
+                <option value="spent" selected="selected">Spent</option>
+                <option value="earn">Earn</option>
+              </select>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button
+                id="submitButton"
+                type="button"
+                class="btn btn-primary btn-lg"
               >
+                Save
+              </button>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
       <div id="transaction-list" class="row no-margin">
         <div class="col-sm-12">
-          <table class="table">
+          <table id="transaction-item" class="table table-hover text-center">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
+            <tbody class="text-center"></tbody>
           </table>
         </div>
       </div>
