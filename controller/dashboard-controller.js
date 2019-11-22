@@ -1,4 +1,5 @@
 var bankAmount = document.querySelector('#amount');
+var bankSpent = document.querySelector('#spent');
 var profileName = document.querySelector('#userName');
 var profileImage = document.querySelector('.profile-image');
 var logOutLink = document.querySelector('#log-out');
@@ -31,8 +32,9 @@ function fillDashboard() {
   for (var i = 0; i < DumpUsers.length; i++) {
     if (DumpUsers[i][0] == logIndex) {
       profileName.innerText = DumpUsers[i][1] + ' ' + DumpUsers[i][2];
-      profileImage.style.backgroundImage = 'url(' + DumpUsers[i][6] + ')';
+      profileImage.style.backgroundImage = 'url(' + DumpUsers[i][7] + ')';
       bankAmount.innerText = '$' + DumpUsers[i][5];
+      bankSpent.innerText = '$' + DumpUsers[i][6];
     }
   }
 }
@@ -45,6 +47,8 @@ function fillTransactionList() {
       myTransaction.push(transactionItem[i]);
     }
   }
+
+  myTransaction.reverse();
 
   for (var i = 0; i < myTransaction.length; i++) {
     var tableRow = tableItem.insertRow(i);
@@ -61,6 +65,8 @@ function fillTransactionList() {
 }
 
 function createTransaction() {
+  var Index = logIndex - 1;
+
   var newTransaction = [
     logIndex,
     transactionItem.length + 1,
@@ -70,8 +76,16 @@ function createTransaction() {
     date
   ];
 
+  if (selectClass.options[selectClass.selectedIndex].value == 'spent') {
+    DumpUsers[Index][5] = DumpUsers[Index][5] - parseInt(inputAmount.value);
+    DumpUsers[Index][6] = DumpUsers[Index][6] + parseInt(inputAmount.value);
+  } else {
+    DumpUsers[Index][5] = DumpUsers[Index][5] + parseInt(inputAmount.value);
+  }
+
   transactionItem.push(newTransaction);
   localStorage.setItem('transactionList', JSON.stringify(transactionItem));
+  localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
 
   window.location.reload();
 }

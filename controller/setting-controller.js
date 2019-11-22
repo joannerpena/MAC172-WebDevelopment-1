@@ -51,7 +51,7 @@ function changeProfileValue() {
       DumpUsers[i][3] = inputEmail.value;
       DumpUsers[i][5] = parseInt(inputAmount.value);
       if (inputImage.value.length !== 0) {
-        DumpUsers[i][6] = inputImage.value + '.jpg';
+        DumpUsers[i][7] = inputImage.value + '.jpg';
       }
 
       localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));

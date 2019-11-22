@@ -16,6 +16,7 @@ function StartedSetup() {
         'admin@admin.com',
         'admin',
         10000,
+        0,
         'https://imgur.com/hdB08vt.jpg'
       ],
       [
@@ -25,6 +26,7 @@ function StartedSetup() {
         'pena@admin.com',
         'admin',
         90000,
+        0,
         '../img/default-profile.jpg'
       ]
     ];

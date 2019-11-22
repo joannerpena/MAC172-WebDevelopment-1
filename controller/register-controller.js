@@ -17,6 +17,7 @@ function registerUser() {
       inputEmail.value,
       inputPass.value,
       parseInt(inputAmount.value),
+      0,
       '../img/default-profile.jpg'
     ];
 
