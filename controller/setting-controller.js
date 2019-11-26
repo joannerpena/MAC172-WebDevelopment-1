@@ -26,7 +26,7 @@ function fillNav() {
   for (var i = 0; i < DumpUsers.length; i++) {
     if (DumpUsers[i][0] == logIndex) {
       profileName.innerText = DumpUsers[i][1] + ' ' + DumpUsers[i][2];
-      profileImage.style.backgroundImage = 'url(' + DumpUsers[i][6] + ')';
+      profileImage.style.backgroundImage = 'url(' + DumpUsers[i][7] + ')';
     }
   }
 }
@@ -38,7 +38,7 @@ function fillProfileForm() {
       inputLName.value = DumpUsers[i][2];
       inputEmail.value = DumpUsers[i][3];
       inputAmount.value = DumpUsers[i][5];
-      thumbnail.setAttribute('src', DumpUsers[i][6]);
+      thumbnail.setAttribute('src', DumpUsers[i][7]);
     }
   }
 }

@@ -27,6 +27,8 @@ function logIn() {
   }
 
   if (userFound != true) {
+    inputEmail.classList.add('is-invalid');
+    inputPass.classList.add('is-invalid');
     alert('User Not Found - Are You A New User?');
   }
 }

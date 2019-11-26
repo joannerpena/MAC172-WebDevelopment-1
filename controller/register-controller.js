@@ -40,6 +40,7 @@ function validateUser() {
   for (var i = 0; i < DumpUsers.length; i++) {
     if (inputEmail.value == DumpUsers[i][3]) {
       alert('This email has been used for another user. Try another one.');
+      inputEmail.classList.add('is-invalid');
       return (validated = false);
     } else {
       return (validated = true);
