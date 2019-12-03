@@ -8,9 +8,13 @@ var tableItem = document
   .querySelector('#transaction-item')
   .getElementsByTagName('tbody')[0];
 
-var inputAmount = document.forms[0].InputAmount;
-var inputDesc = document.forms[0].InputDesc;
-var selectClass = document.forms[0].selectClass;
+var accountID = document.forms[0].accountID;
+var transferAmount = document.forms[0].transferAmount;
+var submitTransferButton = document.querySelector('#submitTransferButton');
+
+var inputAmount = document.forms[1].InputAmount;
+var inputDesc = document.forms[1].InputDesc;
+var selectClass = document.forms[1].selectClass;
 var submitButton = document.querySelector('#submitButton');
 
 var today = new Date();
@@ -90,6 +94,73 @@ function createTransaction() {
   window.location.reload();
 }
 
+function createTransfer() {
+  var transaction = transferMoney();
+  transferTransaction(transaction[0], transaction[1]);
+
+  window.location.reload();
+}
+
+function transferTransaction(transaction, account) {
+  var Index = logIndex - 1;
+  var thisUser = findAccount(logIndex);
+
+  var newTransaction = [
+    logIndex,
+    transactionItem.length + 1,
+    parseInt(transferAmount.value),
+    'Sent money to ' + account[1] + ' ' + account[2],
+    'spent',
+    date
+  ];
+
+  var transactionTo = [
+    account[0],
+    transactionItem.length + 1,
+    parseInt(transaction[1]),
+    'Received money from ' + thisUser[1] + ' ' + thisUser[2],
+    'earn',
+    date
+  ];
+
+  DumpUsers[Index][5] = DumpUsers[Index][5] - parseInt(transferAmount.value);
+  DumpUsers[Index][6] = DumpUsers[Index][6] + parseInt(transferAmount.value);
+  DumpUsers[account[0] - 1][5] =
+    DumpUsers[account[0] - 1][5] + parseInt(transferAmount.value);
+
+  transactionItem.push(newTransaction);
+  transactionItem.push(transactionTo);
+
+  localStorage.setItem('transactionList', JSON.stringify(transactionItem));
+  localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
+}
+
+function transferMoney() {
+  var accountToTransfer = findAccount(accountID.value);
+  var transferInfo = null;
+
+  if (accountToTransfer == '') {
+    alert('Account not found');
+  } else {
+    transferInfo = [[accountID.value, transferAmount.value]];
+  }
+
+  transferInfo.push(accountToTransfer);
+  return transferInfo;
+}
+
+function findAccount(id) {
+  var accountFound = new Array();
+
+  for (var i = 0; i < DumpUsers.length; i++) {
+    if (DumpUsers[i][0] == id) {
+      accountFound = DumpUsers[i];
+    }
+  }
+
+  return accountFound;
+}
+
 function main() {
   document.forms[0].reset();
 
@@ -98,6 +169,7 @@ function main() {
 
   logOutLink.addEventListener('click', logOut);
   submitButton.addEventListener('click', createTransaction);
+  submitTransferButton.addEventListener('click', createTransfer);
 
   profileName.addEventListener('click', function() {
     window.location.replace('../pages/dashboard.html');

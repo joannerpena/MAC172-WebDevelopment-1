@@ -234,6 +234,10 @@
   margin-top: 1em;
 }
 
+#transfer-button {
+  margin-left: 0.2em;
+}
+
 /* ====== SETTINGS ====== */
 .setting-section {
   padding: 2em 1em;

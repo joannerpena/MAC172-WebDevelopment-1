@@ -41,11 +41,19 @@ function validateUser() {
     if (inputEmail.value == DumpUsers[i][3]) {
       alert('This email has been used for another user. Try another one.');
       inputEmail.classList.add('is-invalid');
-      return (validated = false);
+      validated = false;
     } else {
-      return (validated = true);
+      validated = true;
     }
   }
+
+  if (inputAmount.value < 0) {
+    inputAmount.classList.add('is-invalid');
+    alert('Not amount below 0 allowed');
+    validated = false;
+  }
+
+  return validated;
 }
 
 function main() {
