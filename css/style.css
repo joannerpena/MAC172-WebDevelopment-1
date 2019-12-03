@@ -109,6 +109,17 @@
   margin-bottom: 3em;
 }
 
+.alert-container {
+  position: absolute;
+  margin: 0 5em !important;
+  right: -5em;
+  top: 0;
+}
+
+.customAlert {
+  margin: 0 6em;
+}
+
 /* ====== Slide-Image ====== */
 .slide-title {
   position: absolute;

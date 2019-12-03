@@ -1,3 +1,7 @@
+// DOM Interaction
+var formAlert = document.querySelector('#signUp-alert');
+
+// Form Sign Up
 var inputName = document.forms[0].InputName;
 var inputLName = document.forms[0].InputLName;
 var inputEmail = document.forms[0].InputEmail;
@@ -5,8 +9,15 @@ var inputPass = document.forms[0].InputPassword;
 var inputAmount = document.forms[0].InputAmount;
 var submitButton = document.querySelector('#signUp-submit');
 
+// Variables
 var validated = false;
+
+// Retrieve data from LocalStorage
 var DumpUsers = JSON.parse(localStorage.getItem('DumpUsers'));
+
+function main() {
+  submitButton.addEventListener('click', registerUser);
+}
 
 function registerUser() {
   validated = validateUser();
@@ -49,15 +60,15 @@ function validateUser() {
 
   if (inputAmount.value < 0) {
     inputAmount.classList.add('is-invalid');
-    alert('Not amount below 0 allowed');
+    triggerAlert();
     validated = false;
   }
 
   return validated;
 }
 
-function main() {
-  submitButton.addEventListener('click', registerUser);
+function triggerAlert() {
+  formAlert.classList.toggle('show');
 }
 
 main();
