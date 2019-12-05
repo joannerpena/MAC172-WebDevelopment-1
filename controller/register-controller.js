@@ -38,32 +38,37 @@ function main() {
 
 function registerUser() {
   var formValidated = formVerification();
+  var emailValidation = validateEmail(inputEmail);
   validated = validateUser();
 
   if (formValidated) {
-    if (validated == true) {
-      if ('DumpUsers' in localStorage) {
-        var index = DumpUsers.length + 1;
-        var newUser = [
-          index,
-          inputName.value,
-          inputLName.value,
-          inputEmail.value.toLowerCase(),
-          inputPass.value,
-          parseInt(inputAmount.value),
-          0,
-          '../img/default-profile.jpg'
-        ];
+    if (emailValidation) {
+      if (validated == true) {
+        if ('DumpUsers' in localStorage) {
+          var index = DumpUsers.length + 1;
+          var newUser = [
+            index,
+            inputName.value,
+            inputLName.value,
+            inputEmail.value.toLowerCase(),
+            inputPass.value,
+            parseInt(inputAmount.value),
+            0,
+            '../img/default-profile.jpg'
+          ];
 
-        DumpUsers.push(newUser);
-        localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
+          DumpUsers.push(newUser);
+          localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
 
-        localStorage.setItem('isLog', true);
-        localStorage.setItem('index', index);
-        window.location.replace('../pages/dashboard.html');
+          localStorage.setItem('isLog', true);
+          localStorage.setItem('index', index);
+          window.location.replace('../pages/dashboard.html');
+        }
+      } else {
+        return;
       }
     } else {
-      return;
+      triggerAlert('Please provide a valid email address');
     }
   } else {
     triggerAlert('Some needed field are missing.');
@@ -92,6 +97,17 @@ function validateUser() {
   }
 
   return validated;
+}
+
+function validateEmail(email) {
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+  if (!filter.test(email.value)) {
+    email.classList.add('is-invalid');
+    return false;
+  }
+
+  return true;
 }
 
 function triggerAlert(text) {
