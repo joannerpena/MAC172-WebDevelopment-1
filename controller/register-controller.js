@@ -52,8 +52,10 @@ function registerUser() {
             var index = DumpUsers.length + 1;
             var newUser = [
               index,
-              inputName.value,
-              inputLName.value,
+              inputName.value.charAt(0).toUpperCase() +
+                inputName.value.slice(1),
+              inputLName.value.charAt(0).toUpperCase() +
+                inputLName.value.slice(1),
               inputEmail.value.toLowerCase(),
               inputPass.value,
               parseInt(inputAmount.value),

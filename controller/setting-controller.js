@@ -46,9 +46,11 @@ function fillProfileForm() {
 function changeProfileValue() {
   for (var i = 0; i < DumpUsers.length; i++) {
     if (DumpUsers[i][0] == logIndex) {
-      DumpUsers[i][1] = inputName.value;
-      DumpUsers[i][2] = inputLName.value;
-      DumpUsers[i][3] = inputEmail.value;
+      DumpUsers[i][1] =
+        inputName.value.charAt(0).toUpperCase() + inputName.value.slice(1);
+      DumpUsers[i][2] =
+        inputLName.value.charAt(0).toUpperCase() + inputLName.value.slice(1);
+      DumpUsers[i][3] = inputEmail.value.toLowerCase();
       DumpUsers[i][5] = parseInt(inputAmount.value);
       if (inputImage.value.length !== 0) {
         DumpUsers[i][7] = inputImage.value + '.jpg';
