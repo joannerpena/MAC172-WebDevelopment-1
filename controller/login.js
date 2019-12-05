@@ -1,14 +1,46 @@
+// DOM Interaction
+var formAlert = document.querySelector('#signUp-alert');
+var closeAlert = document.querySelector('#close-alert');
+
+// Variables
+var userFound = null;
+
+// Form Login
 var inputEmail = document.forms[0].InputEmail;
 var inputPass = document.forms[0].InputPassword;
 var submitButton = document.querySelector('#logIn-submit');
 
+// Retrieve data from LocalStorage
 var DumpUsers = JSON.parse(localStorage.getItem('DumpUsers'));
-var userFound = false;
+
+function main() {
+  document.forms[0].reset();
+
+  closeAlert.addEventListener('click', closeAlertNotificacion);
+
+  submitButton.addEventListener('click', logIn);
+
+  inputEmail.addEventListener('keydown', function() {
+    inputEmail.classList.remove('is-invalid');
+  });
+  inputPass.addEventListener('keydown', function() {
+    inputPass.classList.remove('is-invalid');
+  });
+}
 
 function logIn() {
+  var emailValidation = validateEmail(inputEmail);
+
   for (var i = 0; i < DumpUsers.length; i++) {
+    if (!emailValidation) {
+      triggerAlert('Please provide a valid email address');
+      inputEmail.classList.add('is-invalid');
+      inputPass.value = '';
+      break;
+    }
+
     if (
-      inputEmail.value == DumpUsers[i][3] &&
+      inputEmail.value.toLowerCase() == DumpUsers[i][3] &&
       inputPass.value == DumpUsers[i][4]
     ) {
       userFound = true;
@@ -26,15 +58,32 @@ function logIn() {
     }
   }
 
-  if (userFound != true) {
+  if (userFound == false) {
     inputEmail.classList.add('is-invalid');
     inputPass.classList.add('is-invalid');
-    alert('User Not Found - Are You A New User?');
+    inputPass.value = '';
+    triggerAlert('Wrong Email or Password');
   }
 }
 
-function main() {
-  submitButton.addEventListener('click', logIn);
+function closeAlertNotificacion() {
+  formAlert.classList.remove('show');
+}
+
+function triggerAlert(text) {
+  formAlert.firstChild.data = text;
+  formAlert.classList.add('show');
+}
+
+function validateEmail(email) {
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+  if (!filter.test(email.value)) {
+    email.classList.add('is-invalid');
+    return false;
+  }
+
+  return true;
 }
 
 main();

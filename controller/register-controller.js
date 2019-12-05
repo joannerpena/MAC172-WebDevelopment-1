@@ -31,6 +31,9 @@ function main() {
   inputEmail.addEventListener('keydown', function() {
     inputEmail.classList.remove('is-invalid');
   });
+  inputPass.addEventListener('keydown', function() {
+    inputPass.classList.remove('is-invalid');
+  });
   inputAmount.addEventListener('focus', function() {
     inputAmount.classList.remove('is-invalid');
   });
@@ -112,7 +115,7 @@ function validateEmail(email) {
 
 function triggerAlert(text) {
   formAlert.firstChild.data = text;
-  formAlert.classList.toggle('show');
+  formAlert.classList.add('show');
 }
 
 function closeAlertNotificacion() {
