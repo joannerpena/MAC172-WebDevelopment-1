@@ -46,29 +46,33 @@ function registerUser() {
 
   if (formValidated) {
     if (emailValidation) {
-      if (validated == true) {
-        if ('DumpUsers' in localStorage) {
-          var index = DumpUsers.length + 1;
-          var newUser = [
-            index,
-            inputName.value,
-            inputLName.value,
-            inputEmail.value.toLowerCase(),
-            inputPass.value,
-            parseInt(inputAmount.value),
-            0,
-            '../img/default-profile.jpg'
-          ];
+      if (inputPass.value.length > 5) {
+        if (validated == true) {
+          if ('DumpUsers' in localStorage) {
+            var index = DumpUsers.length + 1;
+            var newUser = [
+              index,
+              inputName.value,
+              inputLName.value,
+              inputEmail.value.toLowerCase(),
+              inputPass.value,
+              parseInt(inputAmount.value),
+              0,
+              '../img/default-profile.jpg'
+            ];
 
-          DumpUsers.push(newUser);
-          localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
+            DumpUsers.push(newUser);
+            localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
 
-          localStorage.setItem('isLog', true);
-          localStorage.setItem('index', index);
-          window.location.replace('../pages/dashboard.html');
+            localStorage.setItem('isLog', true);
+            localStorage.setItem('index', index);
+            window.location.replace('../pages/dashboard.html');
+          }
+        } else {
+          return;
         }
       } else {
-        return;
+        triggerAlert('Password should be more then 5 characters');
       }
     } else {
       triggerAlert('Please provide a valid email address');
