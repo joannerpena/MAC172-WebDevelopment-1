@@ -23,8 +23,12 @@
 
 .nav-item {
   margin-left: 1em;
+}
+
+.nav-item a {
   padding: 0.5em;
   color: #fff !important;
+  text-decoration: none !important;
 }
 
 .log-link {
