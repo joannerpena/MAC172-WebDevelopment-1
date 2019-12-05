@@ -1,5 +1,6 @@
 // DOM Interaction
 var formAlert = document.querySelector('#signUp-alert');
+var closeAlert = document.querySelector('#close-alert');
 
 // Form Sign Up
 var inputName = document.forms[0].InputName;
@@ -10,13 +11,23 @@ var inputAmount = document.forms[0].InputAmount;
 var submitButton = document.querySelector('#signUp-submit');
 
 // Variables
-var validated = false;
+var validated = null;
 
 // Retrieve data from LocalStorage
 var DumpUsers = JSON.parse(localStorage.getItem('DumpUsers'));
 
 function main() {
+  document.forms[0].reset();
+
   submitButton.addEventListener('click', registerUser);
+  closeAlert.addEventListener('click', closeAlertNotificacion);
+
+  inputEmail.addEventListener('keydown', function() {
+    inputEmail.classList.remove('is-invalid');
+  });
+  inputAmount.addEventListener('focus', function() {
+    inputAmount.classList.remove('is-invalid');
+  });
 }
 
 function registerUser() {
@@ -49,10 +60,13 @@ function registerUser() {
 
 function validateUser() {
   for (var i = 0; i < DumpUsers.length; i++) {
-    if (inputEmail.value == DumpUsers[i][3]) {
-      alert('This email has been used for another user. Try another one.');
+    if (DumpUsers[i][3] === inputEmail.value) {
+      triggerAlert(
+        'This email has been used for another user. Try another one.'
+      );
       inputEmail.classList.add('is-invalid');
       validated = false;
+      break;
     } else {
       validated = true;
     }
@@ -60,15 +74,20 @@ function validateUser() {
 
   if (inputAmount.value < 0) {
     inputAmount.classList.add('is-invalid');
-    triggerAlert();
+    triggerAlert('Not amount below 0 allowed');
     validated = false;
   }
 
   return validated;
 }
 
-function triggerAlert() {
+function triggerAlert(text) {
+  formAlert.firstChild.data = text;
   formAlert.classList.toggle('show');
+}
+
+function closeAlertNotificacion() {
+  formAlert.classList.remove('show');
 }
 
 main();
