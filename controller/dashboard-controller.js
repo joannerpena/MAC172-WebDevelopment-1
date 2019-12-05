@@ -1,10 +1,14 @@
 // DOM Interactions
+var formAlert = document.querySelector('#dashboard-alert');
+var closeAlert = document.querySelector('#close-alert');
 var bankAmount = document.querySelector('#amount');
 var bankSpent = document.querySelector('#spent');
 var profileName = document.querySelector('#userName');
 var profileImage = document.querySelector('.profile-image');
 var logOutLink = document.querySelector('#log-out');
 var transactionButton = document.querySelector('#transaction-button');
+
+// Table Interactions
 var tableItem = document
   .querySelector('#transaction-item')
   .getElementsByTagName('tbody')[0];
@@ -33,6 +37,7 @@ var transactionItem = JSON.parse(localStorage.getItem('transactionList'));
 // Use the Main function to work with onLoad callings.
 function main() {
   document.forms[0].reset();
+  document.forms[1].reset();
 
   fillDashboard();
   fillTransactionList();
@@ -40,6 +45,7 @@ function main() {
   logOutLink.addEventListener('click', logOut);
   submitButton.addEventListener('click', createTransaction);
   submitTransferButton.addEventListener('click', createTransfer);
+  closeAlert.addEventListener('click', closeAlertNotificacion);
 
   profileName.addEventListener('click', function() {
     window.location.replace('../pages/dashboard.html');
@@ -97,27 +103,33 @@ function fillTransactionList() {
 function createTransaction() {
   var Index = logIndex - 1;
 
-  var newTransaction = [
-    logIndex,
-    transactionItem.length + 1,
-    parseInt(inputAmount.value),
-    inputDesc.value,
-    selectClass.options[selectClass.selectedIndex].value,
-    date
-  ];
-
-  if (selectClass.options[selectClass.selectedIndex].value == 'spent') {
-    DumpUsers[Index][5] = DumpUsers[Index][5] - parseInt(inputAmount.value);
-    DumpUsers[Index][6] = DumpUsers[Index][6] + parseInt(inputAmount.value);
+  if (inputAmount.value < 0) {
+    triggerAlert('Not amount below 0 allowed');
+    inputAmount.classList.add('is-invalid');
+    return;
   } else {
-    DumpUsers[Index][5] = DumpUsers[Index][5] + parseInt(inputAmount.value);
+    var newTransaction = [
+      logIndex,
+      transactionItem.length + 1,
+      parseInt(inputAmount.value),
+      inputDesc.value === '' ? 'Paid' : inputDesc.value,
+      selectClass.options[selectClass.selectedIndex].value,
+      date
+    ];
+
+    if (selectClass.options[selectClass.selectedIndex].value == 'spent') {
+      DumpUsers[Index][5] = DumpUsers[Index][5] - parseInt(inputAmount.value);
+      DumpUsers[Index][6] = DumpUsers[Index][6] + parseInt(inputAmount.value);
+    } else {
+      DumpUsers[Index][5] = DumpUsers[Index][5] + parseInt(inputAmount.value);
+    }
+
+    transactionItem.push(newTransaction);
+    localStorage.setItem('transactionList', JSON.stringify(transactionItem));
+    localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
+
+    window.location.reload();
   }
-
-  transactionItem.push(newTransaction);
-  localStorage.setItem('transactionList', JSON.stringify(transactionItem));
-  localStorage.setItem('DumpUsers', JSON.stringify(DumpUsers));
-
-  window.location.reload();
 }
 
 // Sent money from user to another account.
@@ -169,7 +181,7 @@ function transferMoney() {
   var transferInfo = null;
 
   if (accountToTransfer == '') {
-    alert('Account not found');
+    triggerAlert('Account not found');
   } else {
     transferInfo = [[accountID.value, transferAmount.value]];
   }
@@ -189,6 +201,15 @@ function findAccount(id) {
   }
 
   return accountFound;
+}
+
+function triggerAlert(text) {
+  formAlert.firstChild.data = text;
+  formAlert.classList.add('show');
+}
+
+function closeAlertNotificacion() {
+  formAlert.classList.remove('show');
 }
 
 main();

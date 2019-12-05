@@ -1,5 +1,5 @@
 // DOM Interaction
-var formAlert = document.querySelector('#signUp-alert');
+var formAlert = document.querySelector('#logIn-alert');
 var closeAlert = document.querySelector('#close-alert');
 
 // Variables
